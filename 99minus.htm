@@ -95,8 +95,13 @@ document.getElementById("userinput").focus();
 function timu(){
     x = Math.floor((Math.random() * 10) + 1);
     y = Math.floor((Math.random() * 10) + 1);
+    if (x<y){
+        k=x;
+        x=y;
+        y=k;
+    }
     document.getElementById("userinput").value="";
-    document.getElementById("bb").innerHTML = document.getElementById("bb").innerHTML+"<br>請問"+x+"加"+y+"等於多少？"; 
+    document.getElementById("bb").innerHTML = document.getElementById("bb").innerHTML+"<br>請問"+x+"減"+y+"等於多少？"; 
 }
 
 function doagain(){
@@ -105,13 +110,13 @@ function doagain(){
 function checkme(event){
     if (event.keyCode == 13) {
         var z = parseInt(document.getElementById("userinput").value);
-        if (z==x+y){
-            document.getElementById("bb").innerHTML="正確！"+x+"加"+y+"就是"+z;
+        if (z==x-y){
+            document.getElementById("bb").innerHTML="正確！"+x+"減"+y+"就是"+z;
             cno=cno+1;
         }
         else{
-            var z = x+y;
-            document.getElementById("bb").innerHTML="錯了!!"+x+"加"+y+"答案應該是"+z;
+            var z = x-y;
+            document.getElementById("bb").innerHTML="錯了!!"+x+"減"+y+"答案應該是"+z;
 
         }
         tno=tno+1;
